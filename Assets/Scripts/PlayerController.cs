@@ -1,5 +1,4 @@
 using System.Collections.Generic;
-using UnityEditor.UIElements;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
@@ -9,15 +8,12 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private InputActionAsset controls;
     [SerializeField] private LayerMask zombieLayerMask;
     private List<Zombie> zombies = new List<Zombie>();
+    private bool canJump = true;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-        //Test purpuses
-        for (int i = 0; i < 10; i++)
-        {
-            InstantiateZombie();
-        }
+        InstantiateZombie();
 
         InputActionMap inputActions = controls.FindActionMap("Player");
         InputAction jump = inputActions.FindAction("Jump");
@@ -67,14 +63,27 @@ public class PlayerController : MonoBehaviour
         return position;
     }
 
+    public void CanJump(Zombie zombie)
+    {
+        //If the zombie to fall is the first one that player can jump again
+        if (zombies[0] == zombie)
+        {
+            canJump = true;
+        }
+    }
+
     private void ZombiesJump(InputAction.CallbackContext obj)
     {
-        float jumpPosition = zombies[0].transform.position.x;
-
-        //Be sure that all zombie jump at same position
-        foreach (Zombie zombie in zombies)
+        if (canJump)
         {
-            zombie.Jump((jumpPosition - zombie.transform.position.x) / GameManager.Instance.mapSpeed);
+            canJump = false;
+            float jumpPosition = zombies[0].transform.position.x;
+
+            //Be sure that all zombie jump at same position
+            foreach (Zombie zombie in zombies)
+            {
+                zombie.Jump((jumpPosition - zombie.transform.position.x) / GameManager.Instance.mapSpeed);
+            }
         }
     }
 

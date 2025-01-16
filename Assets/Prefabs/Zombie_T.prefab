@@ -620,8 +620,6 @@ MonoBehaviour:
   rb: {fileID: 5451241324022451929}
   animator: {fileID: 2418107499619691853}
   jumpForce: 80
-  mapSpeedJumpScale: 1
-  mapSpeedGravityScale: 1
   holdJumpGravity: 160
   normalGravity: 240
 --- !u!54 &5451241324022451929
@@ -650,7 +648,7 @@ Rigidbody:
   m_IsKinematic: 0
   m_Interpolate: 0
   m_Constraints: 112
-  m_CollisionDetection: 0
+  m_CollisionDetection: 1
 --- !u!136 &1173018950082312982
 CapsuleCollider:
   m_ObjectHideFlags: 0
