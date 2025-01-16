@@ -5,6 +5,7 @@ public class Zombie : MonoBehaviour
 {
     [Header("Components")]
     [SerializeField] private Rigidbody rb;
+    [SerializeField] private Animator animator;
 
     [Header("Data")]
     [SerializeField] private float jumpForce;
@@ -22,6 +23,7 @@ public class Zombie : MonoBehaviour
     { 
         spawnPosition = transform.position;
         actualGravity = normalGravity;
+        animator.speed = 2 + GameManager.Instance.mapSpeed / 50;
     }
 
     private void FixedUpdate()
@@ -38,8 +40,8 @@ public class Zombie : MonoBehaviour
             rb.linearVelocity = Vector3.zero;
         }
 
-        //When holding jump action, the gravity is lower
-        rb.AddForce(Vector3.down * rb.mass * actualGravity);
+        //If the map accelerate, player drop fastest
+        rb.AddForce(Vector3.down * actualGravity);
     }
 
     public void Jump(float timeBeforeJump)

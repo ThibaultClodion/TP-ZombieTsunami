@@ -4,9 +4,9 @@ public class GameManager : Singleton<GameManager>
 {
 
     [Header("Map data")]
+    public float mapSpeed = 30f;
     [SerializeField] private GameObject[] mapSections;
-    private float mapPositionOffset = 0.8f;
-    [HideInInspector] public float mapSpeed = 10f;
+    private float mapPositionOffset = 1f;
 
     [Header("Components")]
     [SerializeField] private PlayerController playerController;

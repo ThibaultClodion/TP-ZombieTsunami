@@ -51,7 +51,7 @@ public class PlayerController : MonoBehaviour
         }
 
         //Insert the zombie at this place in list
-        Zombie newZombie = Instantiate(zombiePrefab, zombiePosition, Quaternion.identity);
+        Zombie newZombie = Instantiate(zombiePrefab, zombiePosition, zombiePrefab.transform.rotation);
         zombies.Insert(positionInList, newZombie);
     }
 
