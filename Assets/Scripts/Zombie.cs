@@ -8,17 +8,36 @@ public class Zombie : MonoBehaviour
 
     [Header("Data")]
     [SerializeField] private float jumpForce;
+
+    //Gravities
     [SerializeField] private float holdJumpGravity;
     private float normalGravity = 12f;
     private float actualGravity;
 
-    private void Start()
+    //Return to spawn position
+    private Vector3 spawnPosition;
+    private bool isMovingToSpawnPosition;
+
+    private void Awake()
     { 
+        spawnPosition = transform.position;
         actualGravity = normalGravity;
     }
 
     private void FixedUpdate()
     {
+        //Return to spawn position when moved
+        if (spawnPosition.x -  transform.position.x > 0.1f)
+        {
+            isMovingToSpawnPosition = true;
+            rb.linearVelocity = (spawnPosition - transform.position).normalized * GameManager.Instance.mapSpeed;
+        }
+        else if(isMovingToSpawnPosition)
+        {
+            isMovingToSpawnPosition = false;
+            rb.linearVelocity = Vector3.zero;
+        }
+
         //When holding jump action, the gravity is lower
         rb.AddForce(Vector3.down * rb.mass * actualGravity);
     }

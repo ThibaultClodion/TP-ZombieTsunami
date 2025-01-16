@@ -48,7 +48,7 @@ public class PlayerController : MonoBehaviour
         }
     }
 
-    private void InstantiateZombie()
+    public void InstantiateZombie()
     {
         Vector3 zombiePosition = GetRandomZombiePosition();
         int positionInList = 0;

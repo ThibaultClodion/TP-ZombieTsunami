@@ -2,10 +2,19 @@ using UnityEngine;
 
 public class GameManager : Singleton<GameManager>
 {
+
     [Header("Map data")]
-    [HideInInspector] public float mapSpeed = 10f;
     [SerializeField] private GameObject[] mapSections;
     private float mapPositionOffset = 0.8f;
+    [HideInInspector] public float mapSpeed = 10f;
+
+    [Header("Components")]
+    [SerializeField] private PlayerController playerController;
+
+    public void AddZombies(int amount)
+    {
+        playerController.InstantiateZombie();
+    }
 
     public void CreateNextMapSection(Vector3 position)
     {
