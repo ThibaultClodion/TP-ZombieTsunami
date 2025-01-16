@@ -178,3 +178,4 @@ MonoBehaviour:
   isOnMovement: 0
   rb: {fileID: 0}
   speed: 0
+  smokeCloud: {fileID: 1953369420512061975, guid: 30d140ffc662b6240963ac98517cf1cc, type: 3}

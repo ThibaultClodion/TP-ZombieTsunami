@@ -86,7 +86,6 @@ public class GameManager : Singleton<GameManager>
 
     private void GameOver()
     {
-        mapSpeed = 0f;
         replayMenu.SetActive(true);
     }
 

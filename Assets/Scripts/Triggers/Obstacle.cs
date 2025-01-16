@@ -7,6 +7,9 @@ public class Obstacle : MonoBehaviour
     [SerializeField] private Rigidbody rb;
     [SerializeField] private float speed;
 
+    [Header("Visual Elements")]
+    [SerializeField] private ParticleSystem smokeCloud;
+
     private void FixedUpdate()
     {
         if(isOnMovement && transform.position.x < 20f)
@@ -17,6 +20,9 @@ public class Obstacle : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
+        ParticleSystem smokeCloudParticle = Instantiate(smokeCloud, transform.position, Quaternion.identity);
+        smokeCloudParticle.Play();
+
         GameManager.Instance.RemoveZombie(other.GetComponent<Zombie>());
         Destroy(gameObject);
     }
