@@ -1,3 +1,4 @@
+using System.Collections;
 using UnityEngine;
 
 public class Zombie : MonoBehaviour
@@ -22,14 +23,26 @@ public class Zombie : MonoBehaviour
         rb.AddForce(Vector3.down * rb.mass * actualGravity);
     }
 
-    public void Jump()
+
+    public void Jump(float timeBeforeJump)
     {
+        StartCoroutine(JumpCoroutine(timeBeforeJump));
+    }
+    IEnumerator JumpCoroutine(float timeBeforeJump)
+    {
+        yield return new WaitForSeconds(timeBeforeJump);
         rb.AddForce(Vector3.up * jumpForce, ForceMode.Impulse);
         actualGravity = holdJumpGravity;
     }
 
-    public void StopJump()
+    public void StopJump(float timeBeforeStopJump)
     {
+        StartCoroutine(StopJumpCoroutine(timeBeforeStopJump));
+
+    }
+    IEnumerator StopJumpCoroutine(float timeBeforeStopJump)
+    {
+        yield return new WaitForSeconds(timeBeforeStopJump);
         actualGravity = normalGravity;
     }
 }
