@@ -3,14 +3,9 @@ using UnityEngine;
 public class GameManager : Singleton<GameManager>
 {
     [Header("Map data")]
-    [HideInInspector] public float mapSpeed;
+    [HideInInspector] public float mapSpeed = 10f;
     [SerializeField] private GameObject[] mapSections;
     private float mapPositionOffset = 0.8f;
-
-    private void Start()
-    {
-        mapSpeed = 20f;
-    }
 
     public void CreateNextMapSection(Vector3 position)
     {

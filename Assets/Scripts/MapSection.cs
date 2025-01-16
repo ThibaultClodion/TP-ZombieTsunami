@@ -2,11 +2,12 @@ using UnityEngine;
 
 public class MapSection : MonoBehaviour
 {
+    [SerializeField] private Rigidbody rb;
     [SerializeField] private BoxCollider boxCollider;
 
-    private void Update()
+    private void OnEnable()
     {
-        transform.position -= transform.right * GameManager.Instance.mapSpeed * Time.deltaTime;
+        rb.linearVelocity = -transform.right * GameManager.Instance.mapSpeed;
     }
 
     public float GetSize()

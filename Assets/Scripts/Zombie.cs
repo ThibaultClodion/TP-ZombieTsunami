@@ -13,7 +13,7 @@ public class Zombie : MonoBehaviour
     private float actualGravity;
 
     private void Start()
-    {
+    { 
         actualGravity = normalGravity;
     }
 
@@ -22,7 +22,6 @@ public class Zombie : MonoBehaviour
         //When holding jump action, the gravity is lower
         rb.AddForce(Vector3.down * rb.mass * actualGravity);
     }
-
 
     public void Jump(float timeBeforeJump)
     {
