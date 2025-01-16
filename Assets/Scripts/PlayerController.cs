@@ -26,26 +26,10 @@ public class PlayerController : MonoBehaviour
         jump.canceled += ZombiesStopJump;
     }
 
-    private void ZombiesJump(InputAction.CallbackContext obj)
+    public void RemoveZombie(Zombie zombie)
     {
-        float jumpPosition = zombies[0].transform.position.x;
-
-        //Be sure that all zombie jump at same position
-        foreach (Zombie zombie in zombies)
-        {
-            zombie.Jump((jumpPosition - zombie.transform.position.x) / GameManager.Instance.mapSpeed);
-        }
-    }
-
-    private void ZombiesStopJump(InputAction.CallbackContext obj)
-    {
-        float stopJumpPosition = zombies[0].transform.position.x;
-
-        //Be sure that all zombie stop jump at same position
-        foreach (Zombie zombie in zombies)
-        {
-            zombie.StopJump((stopJumpPosition - zombie.transform.position.x) / GameManager.Instance.mapSpeed);
-        }
+        zombies.Remove(zombie);
+        Destroy(zombie.gameObject);
     }
 
     public void InstantiateZombie()
@@ -81,5 +65,27 @@ public class PlayerController : MonoBehaviour
         }
 
         return position;
+    }
+
+    private void ZombiesJump(InputAction.CallbackContext obj)
+    {
+        float jumpPosition = zombies[0].transform.position.x;
+
+        //Be sure that all zombie jump at same position
+        foreach (Zombie zombie in zombies)
+        {
+            zombie.Jump((jumpPosition - zombie.transform.position.x) / GameManager.Instance.mapSpeed);
+        }
+    }
+
+    private void ZombiesStopJump(InputAction.CallbackContext obj)
+    {
+        float stopJumpPosition = zombies[0].transform.position.x;
+
+        //Be sure that all zombie stop jump at same position
+        foreach (Zombie zombie in zombies)
+        {
+            zombie.StopJump((stopJumpPosition - zombie.transform.position.x) / GameManager.Instance.mapSpeed);
+        }
     }
 }

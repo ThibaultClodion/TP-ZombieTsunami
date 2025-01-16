@@ -11,7 +11,7 @@ public class Zombie : MonoBehaviour
 
     //Gravities
     [SerializeField] private float holdJumpGravity;
-    private float normalGravity = 12f;
+    [SerializeField] private float normalGravity;
     private float actualGravity;
 
     //Return to spawn position

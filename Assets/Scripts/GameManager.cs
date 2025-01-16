@@ -16,6 +16,11 @@ public class GameManager : Singleton<GameManager>
         playerController.InstantiateZombie();
     }
 
+    public void RemoveZombie(Zombie zombie)
+    {
+        playerController.RemoveZombie(zombie);
+    }
+
     public void CreateNextMapSection(Vector3 position)
     {
         //Get next map position
