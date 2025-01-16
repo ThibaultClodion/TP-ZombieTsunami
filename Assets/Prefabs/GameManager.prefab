@@ -1,0 +1,76 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &2530854454370467709
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 6897720840188127578}
+  - component: {fileID: 3407540279516302807}
+  m_Layer: 0
+  m_Name: GameManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &6897720840188127578
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2530854454370467709}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &3407540279516302807
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2530854454370467709}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 948cd17d02070aa4788d3443a0ef48da, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  mapSpeed: 20
+  mapSections:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  mapElements:
+  - {fileID: 157319367914082564, guid: a1474be94c4588247bddb789b4d4fd4f, type: 3}
+  - {fileID: 9116674258180148272, guid: 4d1ec9ce91e06a54dbd5d53a719e78da, type: 3}
+  - {fileID: 9116674258180148272, guid: 1c8d2f68c48c0a2459471391ab5e92b3, type: 3}
+  - {fileID: 9116674258180148272, guid: 6ef1ebd775294924ea67d6ad82f1b6a0, type: 3}
+  - {fileID: 9116674258180148272, guid: a83c0b0bdd69a694ca3bca3b36d247e7, type: 3}
+  - {fileID: 9116674258180148272, guid: 8c297723f5b4b964a80ac2dde2132120, type: 3}
+  - {fileID: 7769690492283750692, guid: f40e52a0c26735a46b681671fb2baa40, type: 3}
+  - {fileID: 4684085988878093368, guid: dfb877e4cb72172479c2ee2892053760, type: 3}
+  - {fileID: 3273012999226779500, guid: 813df9801c30e63479934f054db68d12, type: 3}
+  - {fileID: 6102465353020172162, guid: 5ad9c9036a2e2e049afdcad853d7ffdb, type: 3}
+  - {fileID: 527664094390900193, guid: bf49b486ffae2c2429b4fd41e96023c3, type: 3}
+  - {fileID: 6950925538906638065, guid: 350735ef3b951a54ba6ec49c663c667e, type: 3}
+  - {fileID: 4257188402449355710, guid: 2c207407257f843429a35fd7933740f3, type: 3}
+  - {fileID: 6100090381407335609, guid: 116c696346346eb45a73993731967b6e, type: 3}
+  - {fileID: 6100090381407335609, guid: 7bcce5cba0d0eb9448e29aeedcf81b00, type: 3}
+  - {fileID: 6100090381407335609, guid: 242145e70a55a6b45a30d91c074522f9, type: 3}
+  - {fileID: 6100090381407335609, guid: 796a7edf788fbad4f95142310b68898e, type: 3}
+  playerController: {fileID: 0}
+  zombieText: {fileID: 0}
+  moneyText: {fileID: 0}
+  brainText: {fileID: 0}

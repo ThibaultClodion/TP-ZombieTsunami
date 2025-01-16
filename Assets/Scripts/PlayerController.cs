@@ -22,6 +22,15 @@ public class PlayerController : MonoBehaviour
         jump.canceled += ZombiesStopJump;
     }
 
+    private void OnDisable()
+    {
+        InputActionMap inputActions = controls.FindActionMap("Player");
+        InputAction jump = inputActions.FindAction("Jump");
+
+        jump.performed -= ZombiesJump;
+        jump.canceled -= ZombiesStopJump;
+    }
+
     public void RemoveZombie(Zombie zombie)
     {
         zombies.Remove(zombie);
@@ -74,6 +83,8 @@ public class PlayerController : MonoBehaviour
 
     private void ZombiesJump(InputAction.CallbackContext obj)
     {
+        if (zombies.Count == 0) return;
+
         if (canJump)
         {
             canJump = false;
@@ -89,6 +100,8 @@ public class PlayerController : MonoBehaviour
 
     private void ZombiesStopJump(InputAction.CallbackContext obj)
     {
+        if (zombies.Count == 0) return;
+
         float stopJumpPosition = zombies[0].transform.position.x;
 
         //Be sure that all zombie stop jump at same position

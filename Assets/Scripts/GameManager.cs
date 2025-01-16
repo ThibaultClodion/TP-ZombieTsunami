@@ -14,6 +14,7 @@ public class GameManager : Singleton<GameManager>
     [SerializeField] private PlayerController playerController;
 
     [Header("Game Data")]
+    [SerializeField] private GameObject replayMenu;
     [SerializeField] private TextMeshProUGUI zombieText;
     private int zombieCount = 1;
     [SerializeField] private TextMeshProUGUI moneyText;
@@ -59,6 +60,11 @@ public class GameManager : Singleton<GameManager>
         zombieCount--;
         zombieText.text = "x " + zombieCount.ToString();
         playerController.RemoveZombie(zombie);
+
+        if(zombieCount <= 0)
+        {
+            GameOver();
+        }
     }
 
     public void CanJump(Zombie zombie)
@@ -76,6 +82,12 @@ public class GameManager : Singleton<GameManager>
         mapSection.transform.position = mapPostion;
         mapSection.gameObject.SetActive(true);
         mapSection.Enable(mapElements);
+    }
+
+    private void GameOver()
+    {
+        mapSpeed = 0f;
+        replayMenu.SetActive(true);
     }
 
     private GameObject GetNextMapSection()
