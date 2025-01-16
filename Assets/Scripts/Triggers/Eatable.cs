@@ -11,7 +11,7 @@ public class Eatable : MonoBehaviour
     {
         nbActualZombie++;
 
-        if (nbActualZombie > nbZombieToEat)
+        if (nbActualZombie >= nbZombieToEat)
         {
             GameManager.Instance.AddZombies(nbZombieGain);
             Destroy(gameObject);
