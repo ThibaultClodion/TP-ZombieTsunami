@@ -7,9 +7,9 @@ public class Obstacle : MonoBehaviour
     [SerializeField] private Rigidbody rb;
     [SerializeField] private float speed;
 
-    private void Start()
+    private void FixedUpdate()
     {
-        if(isOnMovement)
+        if(isOnMovement && transform.position.x < 20f)
         {
             rb.linearVelocity = Vector3.left * speed;
         }
