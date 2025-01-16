@@ -3,7 +3,6 @@ using UnityEngine;
 
 public class GameManager : Singleton<GameManager>
 {
-
     [Header("Map data")]
     public float mapSpeed = 30f;
     [SerializeField] private GameObject[] mapSections;
