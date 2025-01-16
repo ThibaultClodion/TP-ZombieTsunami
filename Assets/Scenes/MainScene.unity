@@ -1166,7 +1166,7 @@ GameObject:
   - component: {fileID: 1911806529}
   - component: {fileID: 1911806530}
   m_Layer: 0
-  m_Name: MapSection_NoHole
+  m_Name: MS_NoHole
   m_TagString: MapSection
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
